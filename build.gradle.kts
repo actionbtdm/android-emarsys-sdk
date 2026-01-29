@@ -63,10 +63,9 @@ allprojects {
     }
 }
 
+// Disable signing
 subprojects {
-    plugins.withType<SigningPlugin> {
-        configure<SigningExtension> {
-            isRequired = false
-        }
+    tasks.withType<org.gradle.plugins.signing.Sign>().configureEach {
+        enabled = false
     }
 }
