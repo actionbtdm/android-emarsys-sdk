@@ -62,3 +62,11 @@ allprojects {
         enabled = false
     }
 }
+
+subprojects {
+    plugins.withType<SigningPlugin> {
+        configure<SigningExtension> {
+            isRequired = false
+        }
+    }
+}
