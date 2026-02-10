@@ -46,8 +46,8 @@ fun versionData() {
     } catch (ignored: Exception) {
         GitVersion(
             versionName = "3.10.2",
-            versionCode = 1,
-            versionCodeTime = 0
+            versionCode = 2,
+            versionCodeTime = System.currentTimeMillis() / 1000
         )
     }
     val sdkVersion by extra(v)
