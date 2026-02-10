@@ -45,7 +45,7 @@ fun versionData() {
 
     } catch (ignored: Exception) {
         GitVersion(
-            versionName = "0.0.0",
+            versionName = "3.10.2",
             versionCode = 1,
             versionCodeTime = 0
         )
