@@ -26,9 +26,6 @@ allprojects {
 }
 
 fun versionData() {
-    val git = Grgit.open(
-        mapOf("currentDir" to project.rootDir)
-    )
     val v = GitVersion(
             versionName = "3.10.2",
             versionCode = 1,
