@@ -26,30 +26,11 @@ allprojects {
 }
 
 fun versionData() {
-    val git = Grgit.open(
-        mapOf("currentDir" to project.rootDir)
-    )
-    val v = try {
-        git.fetch()
-        if (git.describe() == null) {
-            throw RuntimeException("Couldn't get Version Name")
-        }
-        GitVersion(
-            versionName =
-                (if (System.getenv("RELEASE_VERSION") == null) git.describe() else System.getenv(
-                    "RELEASE_VERSION"
-                )),
-            versionCode = ((System.currentTimeMillis() - 1602845230) / 10000).toInt(),
-            versionCodeTime = git.head().dateTime.toEpochSecond()
-        )
-
-    } catch (ignored: Exception) {
-        GitVersion(
-            versionName = "0.0.0",
+    val v = GitVersion(
+            versionName = "3.11.0",
             versionCode = 1,
-            versionCodeTime = 0
+            versionCodeTime = System.currentTimeMillis() / 1000
         )
-    }
     val sdkVersion by extra(v)
 
     println("versionName: ${sdkVersion.versionName}")
