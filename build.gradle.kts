@@ -27,7 +27,7 @@ allprojects {
 
 fun versionData() {
     val v = GitVersion(
-            versionName = "3.10.2",
+            versionName = "3.11.0",
             versionCode = 1,
             versionCodeTime = System.currentTimeMillis() / 1000
         )
@@ -59,6 +59,13 @@ tasks {
 allprojects {
     // Exclude Kotlin files from Javadoc generation because Kotlin files are not supported by Dokka
     tasks.withType(Javadoc::class).all {
+        enabled = false
+    }
+}
+
+// Disable signing
+subprojects {
+    tasks.withType<org.gradle.plugins.signing.Sign>().configureEach {
         enabled = false
     }
 }
